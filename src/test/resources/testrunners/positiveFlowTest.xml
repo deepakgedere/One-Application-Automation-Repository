@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="positiveFlowTest" parallel="tests">
+    <listeners>
+        <listener class-name="org.testng.reporters.EmailableReporter2" />
+        <listener class-name="com.reports.ExtendReportListener" />
+    </listeners>
+
+    <test name="PositiveFlowEdge">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="com.procurement.positiveFlowTest.PositiveTestFlow" />
+        </classes>
+    </test>
+
+<!--    <test name="PositiveFlowChrome">-->
+<!--        <parameter name="browser" value="chrome"/>-->
+<!--        <classes>-->
+<!--            <class name="com.procurement.positiveFlowTest.PositiveTestFlow" />-->
+<!--        </classes>-->
+<!--    </test>-->
+
+</suite>
