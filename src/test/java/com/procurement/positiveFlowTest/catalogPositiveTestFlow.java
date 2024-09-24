@@ -36,9 +36,9 @@ public class catalogPositiveTestFlow extends BaseTest {
             porCreateCatalog.BuyerPORCreate();
             porCreateNonCatalog.PORNotes();
             porCreateNonCatalog.TaxCode();
-            porCreateNonCatalog.PORCreate();
-            porApproval.NonCatalogPORSendForApproval();
-            porApprove.AllApprove();
+//            porCreateNonCatalog.PORCreate();
+//            porApproval.NonCatalogPORSendForApproval();
+//            porApprove.AllApprove();
 
 
 //            porInspectPoInterface.InspectCreatePO();

@@ -1,19 +1,9 @@
 package com.procurement.positiveFlowTest;
 
 import com.base.BaseTest;
-import com.beust.jcommander.Parameter;
-import jdk.jfr.Enabled;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.IListenersAnnotation;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class PositiveTestFlow extends BaseTest {
+public class nonCatalogPositiveTestFlow extends BaseTest {
     @Test
     public void PositiveFlowTestMethod(){
         try {
@@ -24,50 +14,27 @@ public class PositiveTestFlow extends BaseTest {
             prCreateNonCatalog.Project();
             prCreateNonCatalog.WBS();
             prCreateNonCatalog.Incoterm();
-//            prCreateNonCatalog.LiquidatedDamages();
-//            prCreateNonCatalog.PriceValidity();
-//            prCreateNonCatalog.ShipToYokogawa();
             prCreateNonCatalog.ShippingAddress();
-//            prCreateNonCatalog.StorageLocation();
             prCreateNonCatalog.ShippingMode();
             prCreateNonCatalog.QuotationRequiredBy();
             prCreateNonCatalog.ExpectedPOIssue();
             prCreateNonCatalog.ExpectedDelivery();
             prCreateNonCatalog.ProjectManager();
             prCreateNonCatalog.BuyerManager();
-//            prCreateNonCatalog.BuyerGroup();
-//            prCreateNonCatalog.RoHS();
             prCreateNonCatalog.PriceValidity();
             prCreateNonCatalog.InspectionRequired();
-//            prCreateNonCatalog.Checker();
             prCreateNonCatalog.OrderIntake();
             prCreateNonCatalog.TargetPrice();
             prCreateNonCatalog.Tcas();
             prCreateNonCatalog.TcasCheck();
             prCreateNonCatalog.TcasFileUpload();
             prCreateNonCatalog.WarrantyRequirements();
-//            prCreateNonCatalog.TypeOfPurchase();
             prCreateNonCatalog.ImportItems();
             prCreateNonCatalog.AddLineRequisitionItems();
             prCreateNonCatalog.Notes();
             prCreateNonCatalog.NotesAttachments();
             prCreateNonCatalog.PRCreate();
             prSendForApproval.NonCatalogPrSendForApproval();
-
-
-
-//            int x = Integer.parseInt(properties.getProperty("ApproversCount"));
-//            List<String> approvers = new ArrayList<>();
-//            for(int i=1;i<=x;i++){
-//                approvers.add(properties.getProperty("Approver"+i));
-//            }
-//            String PRReferenceNumber = properties.getProperty("PrRefId");
-//            for (String approverMailId : approvers) {
-//                prApprove.Approve(approverMailId , PRReferenceNumber);
-//            }
-
-
-
             prAssign.BuyerManagerAssign();
             rfqCreate.BuyerRfqCreate();
             rfqCreate.RfQNotes();
@@ -81,10 +48,10 @@ public class PositiveTestFlow extends BaseTest {
             readyForEvalutationInterface.ReadyForEvaluationButton();
             technicalEvaluationInterface.TechnicalEvaluationButton();
             commercialEvaluationInterface.CommercialEvaluationButton();
-//            porCreateNonCatalog.BuyerPORCreate();
-//            porCreateNonCatalog.Justification();
-//            porCreateNonCatalog.PORNotes();
-//            porCreateNonCatalog.TaxCode();
+            porCreateNonCatalog.BuyerPORCreate();
+            porCreateNonCatalog.Justification();
+            porCreateNonCatalog.PORNotes();
+            porCreateNonCatalog.TaxCode();
 //            porCreateNonCatalog.PORCreate();
 //            porApproval.NonCatalogPORSendForApproval();
 //            porApprove.AllApprove();

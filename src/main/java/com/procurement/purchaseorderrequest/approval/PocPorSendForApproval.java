@@ -47,6 +47,7 @@ public void NonCatalogPORSendForApproval() throws InterruptedException {
                 page.locator("#btnNewSendApproval").click();
             }
     );
+    Thread.sleep(2000);
     List<String> matchingApprovers = new ArrayList<>();
     List<String> approvalTable = page.locator("#approvalData tbody tr td").allTextContents();
     String approverMailId = "@cormsquare.com";
