@@ -145,7 +145,6 @@ public class RegisteredVendorQuotationSubmit implements QuotationSubmit {
             page.fill("#leadTime-" + itemIndex, rowData.get(7));
             page.fill("#notes-" + itemIndex, rowData.get(8));
             itemIndex++; // Increment the item index for the next row
-
         }
 
 //        for (int i=0; i<excelData.size(); i++){

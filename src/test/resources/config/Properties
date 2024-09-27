@@ -1,5 +1,5 @@
 #PoReferenceId
-#Tue Sep 24 15:58:20 IST 2024
+#Fri Sep 27 16:20:17 IST 2024
 //TODO=Non-Catalog (PR to Invoice)
 AdminId=admin@cormsquare.com
 Approver1=projectmanager@cormsquare.com
@@ -46,9 +46,9 @@ PRApproverGroupD=businessunitmanager@cormsquare.com
 PackageType=Drum
 PartNumber=PN - 1
 Password=Admin@123
-PoReferenceId=240024POR01108
+PoReferenceId=240024PR01715
 PorNotes=Purchase Order Request Notes
-PrRefId=240024PR01696
+PrRefId=240024PR01715
 PresidentDirectorCorporate=hazel@sharklasers.com
 PriceValidity=3 Months
 Project=E256232Q00
@@ -66,7 +66,7 @@ StorageLocation=1001 - \tGeneral Sys Impo
 TEApprover=requester@cormsquare.com
 TargetPrice=4500
 TaxCode=P8-8% Local standard rate purchase
-Title=Dasasas catalog
+Title=non-NonCatalog Requote
 TypeOfPurchase=Multiple Vendor
 Vendor=Alpha Limited
 VendorMailId=alpha123@cormsquare.com

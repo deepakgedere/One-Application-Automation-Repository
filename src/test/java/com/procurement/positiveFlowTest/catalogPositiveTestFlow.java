@@ -39,8 +39,6 @@ public class catalogPositiveTestFlow extends BaseTest {
 //            porCreateNonCatalog.PORCreate();
 //            porApproval.NonCatalogPORSendForApproval();
 //            porApprove.AllApprove();
-
-
 //            porInspectPoInterface.InspectCreatePO();
 //            purchaseOrderInterface.SendForVendor();
 //            orderScheduleInterface.OSCreate();

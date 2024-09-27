@@ -42,9 +42,6 @@ public class NonCatalogPrCreateTest extends BaseTest {
             prCreateNonCatalog.Notes();
             prCreateNonCatalog.NotesAttachments();
             prCreateNonCatalog.PRCreate();
-
-
-
         } catch (Exception error) {
             error.printStackTrace();
         }

@@ -29,7 +29,7 @@ public class WOTrackerStatus implements WOTrackerStatusInterface {
 
     public void VendorTrackerStatus() throws InterruptedException {
         Response response = page.waitForResponse(
-                resp -> resp.url().equals("https://dprocure-uat.cormsquare.com/api/VP/RequestForQuotations/Listing") && resp.status() == 200,
+                resp -> resp.url().equals("https://dprocure-test.cormsquare.com/api/VP/RequestForQuotations/Listing") && resp.status() == 200,
                 () -> {
                     // Click the login button, which triggers the request
                     loginPageInterface.LoginMethod(properties.getProperty("VendorMailId"));

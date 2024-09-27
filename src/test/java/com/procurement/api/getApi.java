@@ -10,7 +10,7 @@ public class getApi extends BaseAPI {
 
     @Test
     public void getAPITestMethod(){
-        APIResponse apiResponse = apiRequestContext.get("https://dprocure-uat.cormsquare.com/api/Reports/GetMyPendingApprovalCount\n");
+        APIResponse apiResponse = apiRequestContext.get("https://dprocure-uat.cormsquare.com/api/Reports/GetMyPendingApprovalCount");
         String x = Arrays.toString(apiResponse.body());
         String y = apiResponse.text();
         System.out.println(y);

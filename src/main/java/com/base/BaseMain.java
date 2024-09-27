@@ -11,6 +11,7 @@ import com.procurement.inspections.fail.InspectionFail;
 import com.procurement.invoice.approve.POInvoiceApproval;
 import com.procurement.invoice.create.POInvoiceCreate;
 import com.procurement.invoice.sendforapproval.POInvoiceSendForApproval;
+import com.procurement.locators.Locators;
 import com.procurement.login.LoginPage;
 import com.procurement.logout.LogoutPage;
 import com.procurement.msa.PorInspectPO;
@@ -55,6 +56,7 @@ public class BaseMain {
     protected PlayWrightFactory playWrightFactory;
     protected Page page;
     protected Properties properties;
+    protected Locators locators;
     protected CurrencyExchangeRate currencyExchangeRate;
     protected LoginPageInterface loginPageInterface;
     protected LogoutPageInterface logoutPageInterface;
@@ -110,7 +112,7 @@ public class BaseMain {
         }
         properties = playWrightFactory.initializeProperties(properties.getProperty("browser"));
             page = playWrightFactory.initializeBrowser(properties);
-
+            locators = new Locators();
             loginPageInterface = new LoginPage(properties, page);
             logoutPageInterface = new LogoutPage(page);
 

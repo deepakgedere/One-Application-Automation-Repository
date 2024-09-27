@@ -9,6 +9,7 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Response;
 import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.LoadState;
+import com.procurement.locators.Locators;
 
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -21,8 +22,6 @@ public class PocCatalogPrCreate implements PrCreateCatalog {
     LogoutPageInterface logoutPageInterface;
     Properties properties;
 
-
-
     //TODO Constructor
     public PocCatalogPrCreate(LoginPageInterface loginPageInterface, Properties properties, Page page, LogoutPageInterface logoutPageInterface){
         this.page = page;
@@ -30,7 +29,6 @@ public class PocCatalogPrCreate implements PrCreateCatalog {
         this.loginPageInterface = loginPageInterface;
         this.logoutPageInterface = logoutPageInterface;
     }
-
 
     public void RequesterLoginPRCreate() throws InterruptedException {
         loginPageInterface.LoginMethod(properties.getProperty("EmailID"));
@@ -52,7 +50,7 @@ public class PocCatalogPrCreate implements PrCreateCatalog {
 
 
     public void Title() throws InterruptedException {
-        Locator title = page.getByPlaceholder("Please Enter Title");
+        Locator title = page.locator(Locators.titleLocator());
         title.fill(properties.getProperty("Title"));
     }
 
@@ -66,12 +64,11 @@ public class PocCatalogPrCreate implements PrCreateCatalog {
         page.getByRole(AriaRole.SEARCHBOX).fill(properties.getProperty("Project"));
         Locator getProject = page.locator("//li[contains(text(),'" + properties.getProperty("Project") + "')]");
         Response response = page.waitForResponse(
-                resp -> resp.url().startsWith("https://dprocure-test.cormsquare.com/api/StorageLocations") && resp.status() == 200,
+                resp -> resp.url().startsWith("https://dprocure-test.cormsquare.com/api/workBreakdownStructures/") && resp.status() == 200,
                 () -> {
                     getProject.click();
                 }
         );
-
     }
 
     public void WBS() {
@@ -116,14 +113,14 @@ public class PocCatalogPrCreate implements PrCreateCatalog {
     }
 
     public void ExpectedPOIssue() {
-//        Locator expectedPOIssue = page.locator("//*[@id=\"dates\"]/div[2]/input[2]");
-//        Locator expectedPOIssue = page.getByPlaceholder("-- Select Date --").nth(0);
-                        page.locator("//input[@class='form-control form-control-sm flatpickr-custom form-control input']").first().click();
+//      Locator expectedPOIssue = page.locator("//*[@id=\"dates\"]/div[2]/input[2]");
+//      Locator expectedPOIssue = page.getByPlaceholder("-- Select Date --").nth(0);
+        page.locator("//input[@class='form-control form-control-sm flatpickr-custom form-control input']").first().click();
         //input[@class='form-control form-control-sm flatpickr-custom input']
         //input[@class='form-control form-control-sm flatpickr-custom input']
-          //  expectedPOIssue.click();
-            Locator today = page.locator("//span[@class='flatpickr-day today']").first();
-            today.click();
+        //  expectedPOIssue.click();
+        Locator today = page.locator("//span[@class='flatpickr-day today']").first();
+        today.click();
     }
 
     public void ExpectedDelivery() {
