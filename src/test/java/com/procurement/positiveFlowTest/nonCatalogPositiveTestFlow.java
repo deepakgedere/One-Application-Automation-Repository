@@ -52,12 +52,10 @@ public class nonCatalogPositiveTestFlow extends BaseTest {
             porCreateNonCatalog.Justification();
             porCreateNonCatalog.PORNotes();
             porCreateNonCatalog.TaxCode();
-//            porCreateNonCatalog.PORCreate();
-//            porApproval.NonCatalogPORSendForApproval();
-//            porApprove.AllApprove();
-//
-//
-//            porInspectPoInterface.InspectCreatePO();
+            porCreateNonCatalog.PORCreate();
+            porApproval.NonCatalogPORSendForApproval();
+            porApprove.AllApprove();
+            porInspectPoInterface.InspectCreatePO();
 //            purchaseOrderInterface.SendForVendor();
 //            orderScheduleInterface.OSCreate();
 //            orderScheduleApproveInterface.OSApprove();

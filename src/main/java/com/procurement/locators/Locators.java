@@ -9,9 +9,11 @@ public class Locators {
     private static String passwordLocator = "//input[@id='Input_Password']";
     private static String loginButtonLocator = "//button[@id='login-submit']";
 
-
     //POC PR Create
     private static String titleLocator = "//input[@id='title']";
+
+
+
 
 
     public static String loginEmailLocator() { return loginEmailLocator; }

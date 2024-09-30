@@ -58,22 +58,29 @@ public class RegisteredVendorQuotationSubmit implements QuotationSubmit {
         Locator validityDate = page.locator("#dates");
         validityDate.click();
         Locator today = page.locator("//span[@class='flatpickr-day today']");
-        int getTodayDayNumber = Integer.parseInt(today.textContent());
-        int getTomorrowDayNumber = getTodayDayNumber + 1;
-        int nextDayAfterThirty = 31;
-        if (getTodayDayNumber == 30) {
-            Locator day = page.locator("//span[contains(text(), '" + nextDayAfterThirty + "')]");
-            if (day.isVisible() || !day.isHidden()) {
-                day.click();
-            } else {
-                page.locator(".flatpickr-day.nextMonthDay").first().click();
-            }
+//        int getTodayDayNumber = Integer.parseInt(today.textContent());
+//        int getTomorrowDayNumber = getTodayDayNumber + 1;
+//        int nextDayAfterThirty = 31;
+//        if (getTodayDayNumber == 30) {
+//            Locator day = page.locator("//span[contains(text(), '" + nextDayAfterThirty + "')]");
+//            if (day.isVisible() || !day.isHidden()) {
+//                day.click();
+//            } else {
+//                page.locator(".flatpickr-day.nextMonthDay").first().click();
+//            }
+//        }
+//        if (getTodayDayNumber == 31) {
+//            page.locator(".flatpickr-day.nextMonthDay").first().click();
+//        }
+//        else {
+//            page.locator("//span[contains(text(), '" + getTomorrowDayNumber + "')]").last().click();
+//        }
+        if (Integer.parseInt(today.textContent()) < 20){
+            page.locator("//span[text()='28' and not(contains(@class,'prevMonthDay'))]").click();
         }
-        if (getTodayDayNumber == 31) {
-            page.locator(".flatpickr-day.nextMonthDay").first().click();
-        }
-        else {
-            page.locator("//span[contains(text(), '" + getTomorrowDayNumber + "')]").last().click();
+        else{
+            page.locator("//span[@class='flatpickr-next-month']").click();
+            page.locator("//span[text()='5' and not(contains(@class,'prevMonthDay')) and not(contains(@class,'nextMonthDay'))]").click();
         }
     }
 
