@@ -33,29 +33,25 @@ public class PocCatalogPrCreate implements PrCreateCatalog {
     public void RequesterLoginPRCreate() throws InterruptedException {
         loginPageInterface.LoginMethod(properties.getProperty("EmailID"));
         Thread.sleep(2000);
-        Locator Requisitions = page.locator("//div[@id='ni-requisitions']");
-        Requisitions.click();
+        page.locator(Locators.requisitionsNavLocator()).click();
         page.waitForLoadState(LoadState.NETWORKIDLE);
     }
 
     public void CreateButton() {
-        Locator prType = page.locator("//*[@id=\"content\"]/div[1]/div[2]/div/div[2]/button");
-        prType.click();
+        page.locator(Locators.createBtnLocator()).click();
     }
 
     public void NonCatalog(){
-        Locator prType = page.locator("//tbody/tr[1]/td[1]/a[1]");
-        prType.click();
+        page.locator(Locators.catalogLocator()).click();
     }
 
 
     public void Title() throws InterruptedException {
-        Locator title = page.locator(Locators.titleLocator());
-        title.fill(properties.getProperty("Title"));
+        page.locator(Locators.titleLocator()).fill(properties.getProperty("Title"));
     }
 
     public void ShipToYokogawa() {
-        page.getByLabel("Ship To Yokogawa").check();
+        page.locator(Locators.shipToYokogawaLocator()).check();
         page.waitForLoadState(LoadState.NETWORKIDLE);
     }
 

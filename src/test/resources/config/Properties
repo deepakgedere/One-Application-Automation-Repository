@@ -1,5 +1,5 @@
 #PoReferenceId
-#Mon Sep 30 15:25:21 IST 2024
+#Tue Oct 01 10:26:19 IST 2024
 //TODO=Non-Catalog (PR to Invoice)
 AdminId=admin@cormsquare.com
 Approver1=projectmanager@cormsquare.com
@@ -46,9 +46,9 @@ PRApproverGroupD=businessunitmanager@cormsquare.com
 PackageType=Drum
 PartNumber=PN - 1
 Password=Admin@123
-PoReferenceId=240024POR01121
+PoReferenceId=240024PR01730
 PorNotes=Purchase Order Request Notes
-PrRefId=240024PR01721
+PrRefId=240024PR01730
 PresidentDirectorCorporate=hazel@sharklasers.com
 PriceValidity=3 Months
 Project=E256232Q00

@@ -8,6 +8,7 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Response;
 import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.LoadState;
+import com.procurement.locators.Locators;
 
 import java.nio.file.Paths;
 import java.util.Properties;
@@ -33,29 +34,25 @@ public class PocNonCatalogPrCreate implements PrCreateNonCatalog {
     public void RequesterLoginPRCreate() throws InterruptedException {
         loginPageInterface.LoginMethod(properties.getProperty("EmailID"));
         Thread.sleep(2000);
-        Locator Requisitions = page.locator("//div[@id='ni-requisitions']");
-        Requisitions.click();
+        page.locator(Locators.requisitionsNavLocator()).click();
         page.waitForLoadState(LoadState.NETWORKIDLE);
     }
 
     public void CreateButton() {
-        Locator prType = page.locator("//*[@id=\"content\"]/div[1]/div[2]/div/div[2]/button");
-        prType.click();
+        page.locator(Locators.createBtnLocator()).click();
     }
 
     public void NonCatalog(){
-        Locator prType = page.locator("//*[@id=\"createPRModal\"]/div/div/div[2]/div/div/div/table/tbody/tr[2]/td[1]/a");
-        prType.click();
+        page.locator(Locators.nonCatalogLocator()).click();
     }
 
 
     public void Title() {
-        Locator title = page.getByPlaceholder("Please Enter Title");
-        title.fill(properties.getProperty("Title"));
+        page.locator(Locators.titleLocator()).fill(properties.getProperty("Title"));
     }
 
     public void ShipToYokogawa() {
-        page.getByLabel("Ship To Yokogawa").check();
+        page.locator(Locators.shipToYokogawaLocator()).check();
         page.waitForLoadState(LoadState.NETWORKIDLE);
     }
 
