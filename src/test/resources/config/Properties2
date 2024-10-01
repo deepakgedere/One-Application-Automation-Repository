@@ -1,5 +1,5 @@
 #PoReferenceId
-#Fri Sep 27 11:30:42 IST 2024
+#Tue Oct 01 15:52:12 IST 2024
 //TODO=Non-Catalog (PR to Invoice)
 AdminId=admin@cormsquare.com
 Approver1=projectmanager@cormsquare.com
@@ -7,7 +7,7 @@ Approver2=buyer@cormsquare.com
 Approver3=buyermanager@cormsquare.com
 Approver4=v.ravishankar@yokogawa.com
 Approver5=harshit.patel@yokogawa.com
-ApproversCount=2
+ApproversCount=3
 BillOfLading=Bill of Lading
 Buyer=buyer@cormsquare.com
 BuyerGroup=BG2 - CONTROL ROOM / LVS / CABLES
@@ -46,9 +46,9 @@ PRApproverGroupD=businessunitmanager@cormsquare.com
 PackageType=Drum
 PartNumber=PN - 1
 Password=Admin@123
-PoReferenceId=240024PR01709
+PoReferenceId=240024POR01135
 PorNotes=Purchase Order Request Notes
-PrRefId=240024PR01709
+PrRefId=240024PR01740
 PresidentDirectorCorporate=hazel@sharklasers.com
 PriceValidity=3 Months
 Project=E256232Q00
@@ -66,7 +66,7 @@ StorageLocation=1001 - \tGeneral Sys Impo
 TEApprover=requester@cormsquare.com
 TargetPrice=4500
 TaxCode=P8-8% Local standard rate purchase
-Title=auto edge CATALOGatalog
+Title=auto edge non-catalog
 TypeOfPurchase=Multiple Vendor
 Vendor=Alpha Limited
 VendorMailId=alpha123@cormsquare.com

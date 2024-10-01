@@ -7,52 +7,16 @@ public class nonCatalogPositiveTestFlow extends BaseTest {
     @Test
     public void PositiveFlowTestMethod(){
         try {
-            prCreateNonCatalog.RequesterLoginPRCreate();
-            prCreateNonCatalog.CreateButton();
-            prCreateNonCatalog.NonCatalog();
-            prCreateNonCatalog.Title();
-            prCreateNonCatalog.Project();
-            prCreateNonCatalog.WBS();
-            prCreateNonCatalog.Incoterm();
-            prCreateNonCatalog.ShippingAddress();
-            prCreateNonCatalog.ShippingMode();
-            prCreateNonCatalog.QuotationRequiredBy();
-            prCreateNonCatalog.ExpectedPOIssue();
-            prCreateNonCatalog.ExpectedDelivery();
-            prCreateNonCatalog.ProjectManager();
-            prCreateNonCatalog.BuyerManager();
-            prCreateNonCatalog.PriceValidity();
-            prCreateNonCatalog.InspectionRequired();
-            prCreateNonCatalog.OrderIntake();
-            prCreateNonCatalog.TargetPrice();
-            prCreateNonCatalog.Tcas();
-            prCreateNonCatalog.TcasCheck();
-            prCreateNonCatalog.TcasFileUpload();
-            prCreateNonCatalog.WarrantyRequirements();
-            prCreateNonCatalog.ImportItems();
-            prCreateNonCatalog.AddLineRequisitionItems();
-            prCreateNonCatalog.Notes();
-            prCreateNonCatalog.NotesAttachments();
-            prCreateNonCatalog.PRCreate();
+            prCreateMethod();
             prSendForApproval.NonCatalogPrSendForApproval();
             prAssign.BuyerManagerAssign();
-            rfqCreate.BuyerRfqCreate();
-            rfqCreate.RfQNotes();
-            rfqCreate.RFQCreate();
+            rfqCreateMethod();
             quotationSubmit.InviteRegisteredVendor();
-            quotationSubmit.VendorLogin();
-            quotationSubmit.Compliances();
-            quotationSubmit.QuotationItems();
-            quotationSubmit.QuotationAttachments();
-            quotationSubmit.QuotationSubmitButton();
+            quotationCreateMethod();
             readyForEvalutationInterface.ReadyForEvaluationButton();
             technicalEvaluationInterface.TechnicalEvaluationButton();
             commercialEvaluationInterface.CommercialEvaluationButton();
-            porCreateNonCatalog.BuyerPORCreate();
-            porCreateNonCatalog.Justification();
-            porCreateNonCatalog.PORNotes();
-            porCreateNonCatalog.TaxCode();
-            porCreateNonCatalog.PORCreate();
+            porCreateMethod();
             porApproval.NonCatalogPORSendForApproval();
             porApprove.AllApprove();
             porInspectPoInterface.InspectCreatePO();
@@ -74,5 +38,54 @@ public class nonCatalogPositiveTestFlow extends BaseTest {
         } catch (Exception error) {
             System.out.println(error);
         }
+    }
+
+    private void prCreateMethod() throws InterruptedException {
+        nonCatalogPrCreate.RequesterLoginPRCreate();
+        nonCatalogPrCreate.CreateButton();
+        nonCatalogPrCreate.PrType();
+        nonCatalogPrCreate.Title();
+        nonCatalogPrCreate.Project();
+        nonCatalogPrCreate.WBS();
+        nonCatalogPrCreate.Incoterm();
+        nonCatalogPrCreate.ShippingAddress();
+        nonCatalogPrCreate.ShippingMode();
+        nonCatalogPrCreate.QuotationRequiredBy();
+        nonCatalogPrCreate.ExpectedPOIssue();
+        nonCatalogPrCreate.ExpectedDelivery();
+        nonCatalogPrCreate.ProjectManager();
+        nonCatalogPrCreate.BuyerManager();
+        nonCatalogPrCreate.PriceValidity();
+        nonCatalogPrCreate.InspectionRequired();
+        nonCatalogPrCreate.OrderIntake();
+        nonCatalogPrCreate.TargetPrice();
+        nonCatalogPrCreate.Tcas();
+        nonCatalogPrCreate.TcasCheck();
+        nonCatalogPrCreate.TcasFileUpload();
+        nonCatalogPrCreate.WarrantyRequirements();
+        nonCatalogPrCreate.ImportItems();
+        nonCatalogPrCreate.AddLineRequisitionItems();
+        nonCatalogPrCreate.Notes();
+        nonCatalogPrCreate.NotesAttachments();
+        nonCatalogPrCreate.PRCreate();
+    }
+    private void rfqCreateMethod() throws InterruptedException{
+        rfqCreate.BuyerRfqCreate();
+        rfqCreate.RfQNotes();
+        rfqCreate.RFQCreate();
+    }
+    private void quotationCreateMethod() throws InterruptedException{
+        quotationSubmit.VendorLogin();
+        quotationSubmit.Compliances();
+        quotationSubmit.QuotationItems();
+        quotationSubmit.QuotationAttachments();
+        quotationSubmit.QuotationSubmitButton();
+    }
+    private void porCreateMethod() throws InterruptedException{
+        porCreateNonCatalog.BuyerPORCreate();
+        porCreateNonCatalog.Justification();
+        porCreateNonCatalog.PORNotes();
+        porCreateNonCatalog.TaxCode();
+        porCreateNonCatalog.PORCreate();
     }
 }

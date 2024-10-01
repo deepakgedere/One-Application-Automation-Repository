@@ -1,11 +1,12 @@
 package com.interfaces;
-public interface PrCreateCatalog {
+
+public interface PrCreate {
 
     void RequesterLoginPRCreate() throws InterruptedException;
-//    void ClickOnRequisitions();
+    //    void ClickOnRequisitions();
     void CreateButton();
-    void NonCatalog();
-    void Title() throws InterruptedException;
+    void PrType();
+    void Title();
     void ShipToYokogawa();
     void Project() throws InterruptedException;
     void WBS();
@@ -36,8 +37,4 @@ public interface PrCreateCatalog {
     void Notes();
     void NotesAttachments();
     void PRCreate() throws InterruptedException;
-
-
-    void VendorSelection();
-    void RateContract();
 }

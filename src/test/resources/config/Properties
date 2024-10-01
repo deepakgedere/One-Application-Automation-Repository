@@ -1,5 +1,5 @@
 #PoReferenceId
-#Tue Oct 01 10:26:19 IST 2024
+#Tue Oct 01 15:52:37 IST 2024
 //TODO=Non-Catalog (PR to Invoice)
 AdminId=admin@cormsquare.com
 Approver1=projectmanager@cormsquare.com
@@ -46,9 +46,9 @@ PRApproverGroupD=businessunitmanager@cormsquare.com
 PackageType=Drum
 PartNumber=PN - 1
 Password=Admin@123
-PoReferenceId=240024PR01730
+PoReferenceId=240024POR01136
 PorNotes=Purchase Order Request Notes
-PrRefId=240024PR01730
+PrRefId=240024PR01739
 PresidentDirectorCorporate=hazel@sharklasers.com
 PriceValidity=3 Months
 Project=E256232Q00
@@ -66,7 +66,7 @@ StorageLocation=1001 - \tGeneral Sys Impo
 TEApprover=requester@cormsquare.com
 TargetPrice=4500
 TaxCode=P8-8% Local standard rate purchase
-Title=auto edge CATALOGatalog
+Title=auto chrome non-catalog
 TypeOfPurchase=Multiple Vendor
 Vendor=Alpha Limited
 VendorMailId=alpha123@cormsquare.com

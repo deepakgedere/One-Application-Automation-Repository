@@ -28,9 +28,9 @@ public class PocCatalogPorCreate implements PorCreateNonCatalog {
 
     public void BuyerPORCreate() {
         loginPageInterface.LoginMethod(properties.getProperty("Buyer"));
-//        page.locator("//*[contains(text(), 'Request For Quotations')]").click();
-//        String title = properties.getProperty("Title");
-//        page.locator("//span[contains(text(), '"+ title +"')]").first().click();
+//      page.locator("//*[contains(text(), 'Request For Quotations')]").click();
+//      String title = properties.getProperty("Title");
+//      page.locator("//span[contains(text(), '"+ title +"')]").first().click();
         page.locator("#ni-requisitions").click();
         String title = properties.getProperty("Title");
         String buyerMailId = properties.getProperty("Buyer");

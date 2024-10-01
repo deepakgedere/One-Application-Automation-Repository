@@ -41,7 +41,6 @@ import com.procurement.requisition.approve.PocPrApprove;
 import com.procurement.requisition.edit.PocPrEdit;
 import com.procurement.requisition.reject.PocPrReject;
 import com.procurement.requisition.assign.PocPrAssign;
-import com.procurement.requisition.create.PocNonCatalogPrCreate;
 import com.procurement.requisition.sendforapproval.PocPrSendForApproval;
 import com.procurement.requisition.suspend.PocPrBuyerManagerSuspend;
 import com.procurement.requisition.suspend.PocPrBuyerSuspend;
@@ -60,7 +59,6 @@ public class BaseMain {
     protected CurrencyExchangeRate currencyExchangeRate;
     protected LoginPageInterface loginPageInterface;
     protected LogoutPageInterface logoutPageInterface;
-    protected PrCreateNonCatalog prCreateNonCatalog;
     protected PrEdit prEdit;
     protected PrSendForApproval prSendForApproval;
     protected PrApprove prApprove;
@@ -117,7 +115,6 @@ public class BaseMain {
             logoutPageInterface = new LogoutPage(page);
 
 //TODO Requisition
-            prCreateNonCatalog = new PocNonCatalogPrCreate(loginPageInterface, properties, page, logoutPageInterface);
             prApprove = new PocPrApprove(loginPageInterface, properties, page, logoutPageInterface);
             prSendForApproval = new PocPrSendForApproval(loginPageInterface, properties, page, logoutPageInterface,playWrightFactory);
             prAssign = new PocPrAssign(loginPageInterface, properties, page, logoutPageInterface,playWrightFactory);

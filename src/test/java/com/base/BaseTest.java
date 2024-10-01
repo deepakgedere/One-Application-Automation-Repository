@@ -33,6 +33,7 @@ import com.procurement.orderschedule.edit.OSEditTest;
 import com.procurement.orderschedule.edit.OrderScheduleEdit;
 import com.procurement.orderschedule.reject.OSRejectTest;
 import com.procurement.orderschedule.reject.OrderScheduleReject;
+import com.procurement.positiveFlowTest.catalogPositiveTestFlow;
 import com.procurement.purchaseorder.BuyerPurchaseOrder;
 import com.procurement.purchaseorder.POSendForVendorTest;
 import com.procurement.purchaseorderrequest.approval.Approve;
@@ -74,9 +75,7 @@ import com.procurement.requisition.approve.NonCatalogPrApproveTest;
 import com.procurement.requisition.approve.PocPrApprove;
 import com.procurement.requisition.assign.PocPrAssign;
 import com.procurement.requisition.assign.RequisitionAssignTest;
-import com.procurement.requisition.create.NonCatalogPrCreateTest;
-import com.procurement.requisition.create.PocCatalogPrCreate;
-import com.procurement.requisition.create.PocNonCatalogPrCreate;
+import com.procurement.requisition.create.*;
 import com.procurement.requisition.edit.NonCatalogPrEditTest;
 import com.procurement.requisition.edit.PocPrEdit;
 import com.procurement.requisition.reject.NonCatalogPrRejectTest;
@@ -119,9 +118,8 @@ public class BaseTest {
     protected CurrencyExchangeRateTest currencyExchangeRateTest;
     protected LoginPageInterface loginPageInterface;
     protected LogoutPageInterface logoutPageInterface;
-    protected NonCatalogPrCreateTest nonCatalogPrCreateTest;
-    protected PrCreateNonCatalog prCreateNonCatalog;
-    protected PrCreateCatalog prCreateCatalog;
+    protected catalogPrCreate catalogPrCreate;
+    protected nonCatalogPrCreate nonCatalogPrCreate;
     protected NonCatalogPrEditTest nonCatalogPrEditTest;
     protected PrEdit prEdit;
     protected NonCatalogPrSendForApprovalTest nonCatalogPrSendForApprovalTest;
@@ -233,9 +231,9 @@ public class BaseTest {
             logoutPageInterface = new LogoutPage(page);
 
 //TODO Requisition
-            prCreateCatalog = new PocCatalogPrCreate(loginPageInterface, properties, page, logoutPageInterface);
-            prCreateNonCatalog = new PocNonCatalogPrCreate(loginPageInterface, properties, page, logoutPageInterface);
-            nonCatalogPrCreateTest = new NonCatalogPrCreateTest();
+            catalogPrCreate = new catalogPrCreate(loginPageInterface, properties, page, logoutPageInterface);
+            nonCatalogPrCreate = new nonCatalogPrCreate(loginPageInterface, properties, page, logoutPageInterface);
+
             prSendForApproval = new PocPrSendForApproval(loginPageInterface, properties, page, logoutPageInterface,playWrightFactory);
             nonCatalogPrSendForApprovalTest = new NonCatalogPrSendForApprovalTest();
             prApprove = new PocPrApprove(loginPageInterface, properties, page, logoutPageInterface);

@@ -2,41 +2,17 @@ package com.procurement.positiveFlowTest;
 
 import com.base.BaseTest;
 import org.testng.annotations.Test;
-
+import com.procurement.positiveFlowTest.catalogPositiveTestFlow;
 public class catalogPositiveTestFlow extends BaseTest {
+
+
     @Test
     public void PositiveFlowTestMethod(){
         try {
-            prCreateCatalog.RequesterLoginPRCreate();
-            prCreateCatalog.CreateButton();
-            prCreateCatalog.NonCatalog();
-            prCreateCatalog.Title();
-            prCreateCatalog.Project();
-            prCreateCatalog.WBS();
-            prCreateCatalog.VendorSelection();
-            prCreateCatalog.RateContract();
-            prCreateCatalog.ShippingAddress();
-            prCreateCatalog.ShippingMode();
-            prCreateCatalog.ExpectedPOIssue();
-            prCreateCatalog.ExpectedDelivery();
-            prCreateCatalog.ProjectManager();
-            prCreateCatalog.BuyerManager();
-            prCreateCatalog.InspectionRequired();
-            prCreateCatalog.OrderIntake();
-            prCreateCatalog.Tcas();
-            prCreateCatalog.TcasCheck();
-            prCreateCatalog.TcasFileUpload();
-            prCreateCatalog.ImportItems();
-            prCreateCatalog.AddLineRequisitionItems();
-            prCreateCatalog.Notes();
-            prCreateCatalog.NotesAttachments();
-            prCreateCatalog.PRCreate();
+            prCreateMethod();
             prSendForApproval.NonCatalogPrSendForApproval();
             prAssign.BuyerManagerAssign();
-            porCreateCatalog.BuyerPORCreate();
-            porCreateNonCatalog.PORNotes();
-            porCreateNonCatalog.TaxCode();
-            porCreateNonCatalog.PORCreate();
+            porCreateMethod();
             porApproval.NonCatalogPORSendForApproval();
             porApprove.AllApprove();
             porInspectPoInterface.InspectCreatePO();
@@ -58,5 +34,37 @@ public class catalogPositiveTestFlow extends BaseTest {
         } catch (Exception error) {
             System.out.println(error);
         }
+    }
+    private void prCreateMethod() throws InterruptedException {
+        catalogPrCreate.RequesterLoginPRCreate();
+        catalogPrCreate.CreateButton();
+        catalogPrCreate.PrType();
+        catalogPrCreate.Title();
+        catalogPrCreate.Project();
+        catalogPrCreate.WBS();
+        catalogPrCreate.VendorSelection();
+        catalogPrCreate.RateContract();
+        catalogPrCreate.ShippingAddress();
+        catalogPrCreate.ShippingMode();
+        catalogPrCreate.ExpectedPOIssue();
+        catalogPrCreate.ExpectedDelivery();
+        catalogPrCreate.ProjectManager();
+        catalogPrCreate.BuyerManager();
+        catalogPrCreate.InspectionRequired();
+        catalogPrCreate.OrderIntake();
+        catalogPrCreate.Tcas();
+        catalogPrCreate.TcasCheck();
+        catalogPrCreate.TcasFileUpload();
+        catalogPrCreate.ImportItems();
+        catalogPrCreate.AddLineRequisitionItems();
+        catalogPrCreate.Notes();
+        catalogPrCreate.NotesAttachments();
+        catalogPrCreate.PRCreate();
+    }
+    private void porCreateMethod() throws InterruptedException{
+        porCreateCatalog.BuyerPORCreate();
+        porCreateNonCatalog.PORNotes();
+        porCreateNonCatalog.TaxCode();
+        porCreateNonCatalog.PORCreate();
     }
 }

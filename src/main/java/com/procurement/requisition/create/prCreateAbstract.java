@@ -2,8 +2,7 @@ package com.procurement.requisition.create;
 
 import com.interfaces.LoginPageInterface;
 import com.interfaces.LogoutPageInterface;
-import com.interfaces.PrCreateCatalog;
-import com.interfaces.PrCreateNonCatalog;
+import com.interfaces.PrCreate;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Response;
@@ -11,19 +10,19 @@ import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.LoadState;
 import com.procurement.locators.Locators;
 
-import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Properties;
 
-public class PocCatalogPrCreate implements PrCreateCatalog {
-
+public abstract class prCreateAbstract implements PrCreate {
     Page page;
     LoginPageInterface loginPageInterface;
     LogoutPageInterface logoutPageInterface;
     Properties properties;
 
+
+
     //TODO Constructor
-    public PocCatalogPrCreate(LoginPageInterface loginPageInterface, Properties properties, Page page, LogoutPageInterface logoutPageInterface){
+    public prCreateAbstract(LoginPageInterface loginPageInterface, Properties properties, Page page, LogoutPageInterface logoutPageInterface){
         this.page = page;
         this.properties = properties;
         this.loginPageInterface = loginPageInterface;
@@ -41,12 +40,10 @@ public class PocCatalogPrCreate implements PrCreateCatalog {
         page.locator(Locators.createBtnLocator()).click();
     }
 
-    public void NonCatalog(){
-        page.locator(Locators.catalogLocator()).click();
-    }
+    public abstract void PrType();
 
 
-    public void Title() throws InterruptedException {
+    public void Title() {
         page.locator(Locators.titleLocator()).fill(properties.getProperty("Title"));
     }
 
@@ -60,11 +57,12 @@ public class PocCatalogPrCreate implements PrCreateCatalog {
         page.getByRole(AriaRole.SEARCHBOX).fill(properties.getProperty("Project"));
         Locator getProject = page.locator("//li[contains(text(),'" + properties.getProperty("Project") + "')]");
         Response response = page.waitForResponse(
-                resp -> resp.url().startsWith("https://dprocure-test.cormsquare.com/api/workBreakdownStructures/") && resp.status() == 200,
+                resp -> resp.url().startsWith("https://dprocure-test.cormsquare.com/api/StorageLocations") && resp.status() == 200,
                 () -> {
                     getProject.click();
                 }
         );
+
     }
 
     public void WBS() {
@@ -73,6 +71,10 @@ public class PocCatalogPrCreate implements PrCreateCatalog {
         Locator getWbs = page.locator("//li[contains(text(),'" + properties.getProperty("Wbs") + "')][1]");
         getWbs.click();
     }
+
+    public abstract void VendorSelection();
+
+    public abstract void RateContract();
 
     public void Incoterm() {
         page.locator("#select2-incoterm-container").click();
@@ -102,27 +104,22 @@ public class PocCatalogPrCreate implements PrCreateCatalog {
     }
 
     public void QuotationRequiredBy() {
-        Locator quotationRequiredBy = page.locator("//*[@id=\"dates\"]/div[1]/input[2]");
+        Locator quotationRequiredBy = page.locator("//div[@id='dates']//input[@name='quotationRequiredBy']/following::input[1]");
         quotationRequiredBy.click();
         Locator today = page.locator("//span[@class='flatpickr-day today']").first();
         today.click();
     }
 
     public void ExpectedPOIssue() {
-//      Locator expectedPOIssue = page.locator("//*[@id=\"dates\"]/div[2]/input[2]");
-//      Locator expectedPOIssue = page.getByPlaceholder("-- Select Date --").nth(0);
-        page.locator("//input[@class='form-control form-control-sm flatpickr-custom form-control input']").first().click();
-        //input[@class='form-control form-control-sm flatpickr-custom input']
-        //input[@class='form-control form-control-sm flatpickr-custom input']
-        //  expectedPOIssue.click();
+        Locator expectedPOIssue = page.locator("//div[@id='dates']//input[@name='expectedPoIssue']/following::input[1]");
+        expectedPOIssue.click();
         Locator today = page.locator("//span[@class='flatpickr-day today']").first();
         today.click();
     }
 
     public void ExpectedDelivery() {
-//        Locator expectedDelivery = page.locator("//*[@id=\"dates\"]/div[3]/input[2]");
-        page.locator("//input[@class='form-control form-control-sm flatpickr-custom form-control input']").first().click();
-//        expectedDelivery.click();
+        Locator expectedDelivery = page.locator("//div[@id='dates']//input[@name='expectedDelivery']/following::input[1]");
+        expectedDelivery.click();
         Locator today = page.locator("//span[@class='flatpickr-day today']").first();
         today.click();
     }
@@ -198,10 +195,10 @@ public class PocCatalogPrCreate implements PrCreateCatalog {
     }
 
     public void InspectionRequired() {
-        page.locator("#inspectRequired").check();
+        page.locator("//label[contains(@for,'inspect') and contains(text(),'Yes')]").click();
     }
 
-//    public void AddLineRequisitionItems() {
+    //    public void AddLineRequisitionItems() {
 //        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add line Requisition Items")).click();
 ////TODO Category
 //        page.getByLabel("-- Select Categories --").click();
@@ -221,7 +218,7 @@ public class PocCatalogPrCreate implements PrCreateCatalog {
     public void AddLineRequisitionItems() {
         page.locator("#addLineRequisitionItems").click();
         //TODO Item Select
-        page.locator("#select2-itemId-container").click();
+        page.locator("//span[contains(@id,'select2-item')]").click();
         page.locator(".select2-search__field").fill(properties.getProperty("Item"));
         Locator getItem = page.locator("//li[contains(text(),'" + properties.getProperty("Item") + "')]").first();
         getItem.click();
@@ -231,13 +228,7 @@ public class PocCatalogPrCreate implements PrCreateCatalog {
         //TODO Add Button
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add").setExact(true)).click();
     }
-    public void ImportItems(){
-        page.locator("#importItem").click();
-        Locator CommercialFile = page.locator("#formFile");
-        CommercialFile.setInputFiles(Paths.get("Attachments-and-import-files/RateContractItems.xlsx"));
-        page.locator("#btnUpload").click();
-    }
-
+    public abstract void ImportItems();
     public void Notes() {
         page.getByPlaceholder("Please Enter Notes").click();
         page.getByPlaceholder("Please Enter Notes").fill(properties.getProperty("Notes"));
@@ -272,30 +263,6 @@ public class PocCatalogPrCreate implements PrCreateCatalog {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Yes")).click();
         Thread.sleep(1000);
         logoutPageInterface.LogoutMethod();
-    }
-
-    public void VendorSelection() {
-        page.locator("#select2-vendorId-container").click();
-        page.getByRole(AriaRole.SEARCHBOX).fill(properties.getProperty("Vendor"));
-        Locator getVendor = page.locator("//li[contains(text(),'" + properties.getProperty("Vendor") + "')]");
-        Response response = page.waitForResponse(
-                resp -> resp.url().startsWith("https://dprocure-test.cormsquare.com/api/RateContractsByVendorIdandCompany") && resp.status() == 200,
-                () -> {
-                    getVendor.click();
-                }
-        );
-    }
-
-    public void RateContract(){
-        page.locator("#select2-rateContractId-container").click();
-        page.getByRole(AriaRole.SEARCHBOX).fill(properties.getProperty("RateContract"));
-        Locator RateContract = page.locator("//li[contains(text(),'" + properties.getProperty("RateContract") + "')]");
-//        Response response = page.waitForResponse(
-//                resp -> resp.url().startsWith("https://dprocure-test.cormsquare.com/api/RateContractsByVendorIdandCompany") && resp.status() == 200,
-//                () -> {
-                    RateContract.click();
-//                }
-//        );
     }
 
 }
