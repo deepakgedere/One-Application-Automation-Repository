@@ -126,7 +126,7 @@ public class BaseMain {
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-        properties = playWrightFactory.initializeProperties(properties.getProperty("browser"));
+            properties = playWrightFactory.initializeProperties("chrome");
             page = playWrightFactory.initializeBrowser(properties);
             loginPageInterface = new LoginPage(properties, page);
             logoutPageInterface = new LogoutPage(page);

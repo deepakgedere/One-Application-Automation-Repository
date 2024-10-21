@@ -8,6 +8,7 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Response;
 import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.LoadState;
+import com.procurement.loc.requisition.requisitionLocators;
 
 import java.nio.file.Paths;
 import java.util.Properties;
@@ -54,14 +55,13 @@ public abstract class prCreateAbstract implements PrCreate {
     public void Project() throws InterruptedException {
         page.locator("#select2-projectId-container").click();
         page.getByRole(AriaRole.SEARCHBOX).fill(properties.getProperty("Project"));
-        Locator getProject = page.locator("//li[contains(text(),'" + properties.getProperty("Project") + "')]");
+        String getProject = requisitionLocators.projectMethod(properties);
         Response response = page.waitForResponse(
                 resp -> resp.url().startsWith("https://dprocure-test.cormsquare.com/api/StorageLocations") && resp.status() == 200,
                 () -> {
-                    getProject.click();
+                    page.locator(getProject).click();
                 }
         );
-
     }
 
     public void WBS() {

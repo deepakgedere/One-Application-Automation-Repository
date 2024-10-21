@@ -3,6 +3,7 @@ package com.procurement.login;
 import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import com.procurement.loc.loc;
 
 import java.util.Properties;
 
@@ -21,7 +22,7 @@ public class LoginPage implements LoginPageInterface {
     }
 
     public void LoginMethod() {
-        Locator mailId = page.locator("//input[@id='Input_Email']");
+        Locator mailId = page.locator(loc.loginEmailLocator);
         mailId.click();
         mailId.fill(properties.getProperty("EmailID"));
         Locator password = page.locator("//input[@id='Input_Password']");

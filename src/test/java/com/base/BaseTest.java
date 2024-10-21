@@ -1,6 +1,7 @@
 package com.base;
 
 import com.factory.PlayWrightFactory;
+import com.interfaces.locInterface.locInterface;
 import com.interfaces.procurementInterfaces.DispatchNotes.DispatchNoteCreateInterface;
 import com.interfaces.procurementInterfaces.DispatchNotes.DispatchNotesAssignInterface;
 import com.interfaces.procurementInterfaces.Inspections.InsFail;
@@ -40,6 +41,7 @@ import com.procurement.invoice.create.InvoiceCreateTest;
 import com.procurement.invoice.create.POInvoiceCreate;
 import com.procurement.invoice.sendforapproval.POInvoiceSendForApproval;
 import com.procurement.invoice.sendforapproval.POInvoiceSendForApprovalTest;
+import com.procurement.loc.loc;
 import com.procurement.login.LoginPage;
 import com.procurement.logout.LogoutPage;
 import com.procurement.msa.InspectPOTest;
