@@ -1,8 +1,8 @@
 package com.procurement.inspections.assign;
 
-import com.interfaces.InspectionAssignInterface;
-import com.interfaces.LoginPageInterface;
-import com.interfaces.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.Inspections.InspectionAssignInterface;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 

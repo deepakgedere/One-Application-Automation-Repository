@@ -1,12 +1,17 @@
 package com.procurement.purchaseorderrequest.reject;
 
-import com.interfaces.*;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.PurchaseOrderRequest.PorApproval;
+import com.interfaces.procurementInterfaces.PurchaseOrderRequest.PorApprove;
+import com.interfaces.procurementInterfaces.PurchaseOrderRequest.PorEdit;
+import com.interfaces.procurementInterfaces.PurchaseOrderRequest.PorReject;
 import com.microsoft.playwright.Page;
 
 import java.util.List;
 import java.util.Properties;
 
-public class PocPorReject implements PorReject{
+public class PocPorReject implements PorReject {
 
     LoginPageInterface loginPageInterface;
     LogoutPageInterface logoutPageInterface;

@@ -1,8 +1,8 @@
 package com.procurement.workorder.create;
 
-import com.interfaces.LoginPageInterface;
-import com.interfaces.LogoutPageInterface;
-import com.interfaces.WorkOrderCreateInterface;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.WorkOrder.WorkOrderCreateInterface;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 

@@ -1,8 +1,8 @@
 package com.procurement.workorder.approvals;
 
-import com.interfaces.LoginPageInterface;
-import com.interfaces.LogoutPageInterface;
-import com.interfaces.WORejectInterface;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.WorkOrder.WORejectInterface;
 import com.microsoft.playwright.Page;
 
 import java.util.List;

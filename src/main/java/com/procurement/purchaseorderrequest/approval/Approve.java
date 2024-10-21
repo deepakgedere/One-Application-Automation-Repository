@@ -1,9 +1,9 @@
 package com.procurement.purchaseorderrequest.approval;
 
 import com.factory.PlayWrightFactory;
-import com.interfaces.LoginPageInterface;
-import com.interfaces.LogoutPageInterface;
-import com.interfaces.PorApprove;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.PurchaseOrderRequest.PorApprove;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 

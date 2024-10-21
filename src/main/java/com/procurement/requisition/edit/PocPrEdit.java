@@ -1,7 +1,11 @@
 package com.procurement.requisition.edit;
-import com.interfaces.*;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.Requisition.PrApprove;
+import com.interfaces.procurementInterfaces.Requisition.PrAssign;
+import com.interfaces.procurementInterfaces.Requisition.PrEdit;
 import com.microsoft.playwright.Page;
-import com.interfaces.PrSendForApproval;
+import com.interfaces.procurementInterfaces.Requisition.PrSendForApproval;
 
 import java.util.List;
 import java.util.Properties;

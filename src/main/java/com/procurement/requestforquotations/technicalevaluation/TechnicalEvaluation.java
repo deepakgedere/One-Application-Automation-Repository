@@ -1,8 +1,8 @@
 package com.procurement.requestforquotations.technicalevaluation;
-import com.interfaces.TechnicalEvaluationInterface;
+import com.interfaces.procurementInterfaces.RequestForQuotations.TechnicalEvaluationInterface;
 import com.microsoft.playwright.Page;
-import com.interfaces.LoginPageInterface;
-import com.interfaces.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
 import java.util.Properties;
 
 public class TechnicalEvaluation implements TechnicalEvaluationInterface {

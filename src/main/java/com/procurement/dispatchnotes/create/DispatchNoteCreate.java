@@ -1,8 +1,8 @@
 package com.procurement.dispatchnotes.create;
-import com.interfaces.DispatchNoteCreateInterface;
+import com.interfaces.procurementInterfaces.DispatchNotes.DispatchNoteCreateInterface;
 import com.microsoft.playwright.Page;
-import com.interfaces.LoginPageInterface;
-import com.interfaces.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
 import com.microsoft.playwright.Response;
 
 import java.util.Properties;

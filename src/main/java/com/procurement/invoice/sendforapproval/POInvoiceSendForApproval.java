@@ -1,9 +1,9 @@
 package com.procurement.invoice.sendforapproval;
 
 import com.factory.PlayWrightFactory;
-import com.interfaces.LoginPageInterface;
-import com.interfaces.LogoutPageInterface;
-import com.interfaces.POSendForApprovalInterface;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.Invoice.POInvoiceSendForApprovalInterface;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Response;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-public class POInvoiceSendForApproval implements POSendForApprovalInterface {
+public class POInvoiceSendForApproval implements POInvoiceSendForApprovalInterface {
     PlayWrightFactory playWrightFactory;
     Page page;
     Properties properties;

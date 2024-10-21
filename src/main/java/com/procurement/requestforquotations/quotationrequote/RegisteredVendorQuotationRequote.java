@@ -1,7 +1,7 @@
 package com.procurement.requestforquotations.quotationrequote;
-import com.interfaces.LoginPageInterface;
-import com.interfaces.LogoutPageInterface;
-import com.interfaces.QuotationRequote;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.RequestForQuotations.QuotationRequote;
 import com.microsoft.playwright.Page;
 import java.util.Properties;
 

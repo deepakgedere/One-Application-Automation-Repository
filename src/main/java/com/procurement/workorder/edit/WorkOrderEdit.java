@@ -1,8 +1,8 @@
 package com.procurement.workorder.edit;
 
-import com.interfaces.LoginPageInterface;
-import com.interfaces.LogoutPageInterface;
-import com.interfaces.WorkOrderEditInterface;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.WorkOrder.WorkOrderEditInterface;
 import com.microsoft.playwright.Page;
 
 import java.util.List;

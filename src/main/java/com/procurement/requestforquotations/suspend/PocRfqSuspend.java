@@ -1,6 +1,14 @@
 package com.procurement.requestforquotations.suspend;
 
-import com.interfaces.*;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.RequestForQuotations.RfqCreate;
+import com.interfaces.procurementInterfaces.RequestForQuotations.RfqEdit;
+import com.interfaces.procurementInterfaces.RequestForQuotations.RfqSuspend;
+import com.interfaces.procurementInterfaces.Requisition.PrApprove;
+import com.interfaces.procurementInterfaces.Requisition.PrAssign;
+import com.interfaces.procurementInterfaces.Requisition.PrEdit;
+import com.interfaces.procurementInterfaces.Requisition.PrSendForApproval;
 import com.microsoft.playwright.Page;
 
 import java.util.Properties;

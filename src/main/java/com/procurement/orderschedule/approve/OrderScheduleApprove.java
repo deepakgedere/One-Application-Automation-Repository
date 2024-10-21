@@ -1,8 +1,8 @@
 package com.procurement.orderschedule.approve;
 
-import com.interfaces.LoginPageInterface;
-import com.interfaces.LogoutPageInterface;
-import com.interfaces.OrderScheduleApproveInterface;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.OrderSchedule.OrderScheduleApproveInterface;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 

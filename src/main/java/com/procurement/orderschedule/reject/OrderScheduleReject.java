@@ -1,7 +1,7 @@
 package com.procurement.orderschedule.reject;
-import com.interfaces.LoginPageInterface;
-import com.interfaces.LogoutPageInterface;
-import com.interfaces.OSReject;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.OrderSchedule.OSReject;
 import com.microsoft.playwright.Page;
 import java.util.Properties;
 

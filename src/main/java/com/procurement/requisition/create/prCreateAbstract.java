@@ -1,14 +1,13 @@
 package com.procurement.requisition.create;
 
-import com.interfaces.LoginPageInterface;
-import com.interfaces.LogoutPageInterface;
-import com.interfaces.PrCreate;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.Requisition.PrCreate;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Response;
 import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.LoadState;
-import com.procurement.locators.Locators;
 
 import java.nio.file.Paths;
 import java.util.Properties;
@@ -32,23 +31,23 @@ public abstract class prCreateAbstract implements PrCreate {
     public void RequesterLoginPRCreate() throws InterruptedException {
         loginPageInterface.LoginMethod(properties.getProperty("EmailID"));
         Thread.sleep(2000);
-        page.locator(Locators.requisitionsNavLocator()).click();
+        page.locator("//a[contains(@class,'nav-link') and contains(@href,'Requisitions')]").click();
         page.waitForLoadState(LoadState.NETWORKIDLE);
     }
 
     public void CreateButton() {
-        page.locator(Locators.createBtnLocator()).click();
+        page.locator("//button[@data-bs-target='#createPRModal']").click();
     }
 
     public abstract void PrType();
 
 
     public void Title() {
-        page.locator(Locators.titleLocator()).fill(properties.getProperty("Title"));
+        page.locator("//input[@id='title']").fill(properties.getProperty("Title"));
     }
 
     public void ShipToYokogawa() {
-        page.locator(Locators.shipToYokogawaLocator()).check();
+        page.locator("//input[@id='shipToYokogawa']").check();
         page.waitForLoadState(LoadState.NETWORKIDLE);
     }
 

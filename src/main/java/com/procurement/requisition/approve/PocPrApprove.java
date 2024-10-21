@@ -1,10 +1,9 @@
 package com.procurement.requisition.approve;
-import com.interfaces.PrApprove;
+import com.interfaces.procurementInterfaces.Requisition.PrApprove;
 import com.microsoft.playwright.Page;
-import com.interfaces.LoginPageInterface;
-import com.interfaces.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
 
-import java.util.List;
 import java.util.Properties;
 
 public class PocPrApprove implements PrApprove {

@@ -1,11 +1,9 @@
 package com.procurement.requisition.create;
 
-import com.interfaces.LoginPageInterface;
-import com.interfaces.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
-import com.procurement.locators.Locators;
-
 import java.nio.file.Paths;
 import java.util.Properties;
 
@@ -17,7 +15,7 @@ public class nonCatalogPrCreate extends prCreateAbstract{
 
     @Override
     public void PrType(){
-        page.locator(Locators.nonCatalogLocator()).click();
+        page.locator("//tbody/tr[2]/td[1]/a[1]").click();
     }
 
     @Override

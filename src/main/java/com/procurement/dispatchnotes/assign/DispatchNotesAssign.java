@@ -1,8 +1,8 @@
 package com.procurement.dispatchnotes.assign;
 
-import com.interfaces.DispatchNotesAssignInterface;
-import com.interfaces.LoginPageInterface;
-import com.interfaces.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.DispatchNotes.DispatchNotesAssignInterface;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 

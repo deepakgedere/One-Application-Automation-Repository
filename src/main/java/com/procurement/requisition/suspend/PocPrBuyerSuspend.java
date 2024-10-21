@@ -1,9 +1,9 @@
 package com.procurement.requisition.suspend;
-import com.interfaces.PrSuspend;
+import com.interfaces.procurementInterfaces.Requisition.PrSuspend;
 import com.microsoft.playwright.Page;
-import com.interfaces.LoginPageInterface;
-import com.interfaces.LogoutPageInterface;
-import com.interfaces.PrEdit;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.Requisition.PrEdit;
 import java.util.Properties;
 
 public class PocPrBuyerSuspend implements PrSuspend {

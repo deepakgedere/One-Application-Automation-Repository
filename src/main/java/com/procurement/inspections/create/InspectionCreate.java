@@ -1,12 +1,11 @@
 package com.procurement.inspections.create;
 
-import com.interfaces.InspectionCreateInterface;
-import com.interfaces.LoginPageInterface;
-import com.interfaces.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.Inspections.InspectionCreateInterface;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Response;
-import com.microsoft.playwright.options.LoadState;
 
 import java.util.Properties;
 

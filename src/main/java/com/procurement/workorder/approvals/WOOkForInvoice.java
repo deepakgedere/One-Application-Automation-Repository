@@ -1,8 +1,8 @@
 package com.procurement.workorder.approvals;
 
-import com.interfaces.LoginPageInterface;
-import com.interfaces.LogoutPageInterface;
-import com.interfaces.WOOkForInvoiceInterface;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.WorkOrder.WOOkForInvoiceInterface;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 

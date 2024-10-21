@@ -1,8 +1,8 @@
 package com.procurement.purchaseorderrequest.approvalandapprove;
 
-import com.interfaces.ApprovalAndApprove;
-import com.interfaces.PorApproval;
-import com.interfaces.PorApprove;
+import com.interfaces.procurementInterfaces.PurchaseOrderRequest.ApprovalAndApprove;
+import com.interfaces.procurementInterfaces.PurchaseOrderRequest.PorApproval;
+import com.interfaces.procurementInterfaces.PurchaseOrderRequest.PorApprove;
 
 public class PorApprovalAndApprove implements ApprovalAndApprove {
 

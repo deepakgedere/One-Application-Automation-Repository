@@ -1,8 +1,8 @@
 package com.procurement.purchaseorderrequest.create;
 
-import com.interfaces.LoginPageInterface;
-import com.interfaces.LogoutPageInterface;
-import com.interfaces.PorCreateNonCatalog;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.PurchaseOrderRequest.PorCreateNonCatalog;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.LoadState;
 

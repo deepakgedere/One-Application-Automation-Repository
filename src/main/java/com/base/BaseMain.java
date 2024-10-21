@@ -1,5 +1,24 @@
 package com.base;
-import com.interfaces.*;
+import com.interfaces.procurementInterfaces.DispatchNotes.DispatchNoteCreateInterface;
+import com.interfaces.procurementInterfaces.DispatchNotes.DispatchNotesAssignInterface;
+import com.interfaces.procurementInterfaces.Inspections.InsFail;
+import com.interfaces.procurementInterfaces.Inspections.InspectionAssignInterface;
+import com.interfaces.procurementInterfaces.Inspections.InspectionCreateInterface;
+import com.interfaces.procurementInterfaces.Invoice.POInvoiceApprovalInterface;
+import com.interfaces.procurementInterfaces.Invoice.POInvoiceCreateInterface;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.MSA.PorInspectPoInterface;
+import com.interfaces.procurementInterfaces.OrderSchedule.OSEdit;
+import com.interfaces.procurementInterfaces.OrderSchedule.OSReject;
+import com.interfaces.procurementInterfaces.OrderSchedule.OrderScheduleApproveInterface;
+import com.interfaces.procurementInterfaces.OrderSchedule.OrderScheduleInterface;
+import com.interfaces.procurementInterfaces.PurchaseOrder.PurchaseOrderInterface;
+import com.interfaces.procurementInterfaces.PurchaseOrderRequest.*;
+import com.interfaces.procurementInterfaces.RequestForQuotations.*;
+import com.interfaces.procurementInterfaces.Requisition.*;
+import com.interfaces.procurementInterfaces.WorkOrder.WOTrackerStatusInterface;
+import com.interfaces.procurementInterfaces.WorkOrder.WorkOrderCreateInterface;
 import com.microsoft.playwright.Page;
 import com.factory.PlayWrightFactory;
 import com.procurement.currencyexchangerate.CurrencyExchangeRate;
@@ -11,7 +30,6 @@ import com.procurement.inspections.fail.InspectionFail;
 import com.procurement.invoice.approve.POInvoiceApproval;
 import com.procurement.invoice.create.POInvoiceCreate;
 import com.procurement.invoice.sendforapproval.POInvoiceSendForApproval;
-import com.procurement.locators.Locators;
 import com.procurement.login.LoginPage;
 import com.procurement.logout.LogoutPage;
 import com.procurement.msa.PorInspectPO;
@@ -55,7 +73,6 @@ public class BaseMain {
     protected PlayWrightFactory playWrightFactory;
     protected Page page;
     protected Properties properties;
-    protected Locators locators;
     protected CurrencyExchangeRate currencyExchangeRate;
     protected LoginPageInterface loginPageInterface;
     protected LogoutPageInterface logoutPageInterface;
@@ -110,7 +127,6 @@ public class BaseMain {
         }
         properties = playWrightFactory.initializeProperties(properties.getProperty("browser"));
             page = playWrightFactory.initializeBrowser(properties);
-            locators = new Locators();
             loginPageInterface = new LoginPage(properties, page);
             logoutPageInterface = new LogoutPage(page);
 

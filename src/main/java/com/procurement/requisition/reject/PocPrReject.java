@@ -1,9 +1,9 @@
 package com.procurement.requisition.reject;
-import com.interfaces.PrReject;
+import com.interfaces.procurementInterfaces.Requisition.PrReject;
 import com.microsoft.playwright.Page;
-import com.interfaces.LoginPageInterface;
-import com.interfaces.LogoutPageInterface;
-import com.interfaces.PrEdit;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.Requisition.PrEdit;
 import java.util.Properties;
 
 public class PocPrReject implements PrReject {

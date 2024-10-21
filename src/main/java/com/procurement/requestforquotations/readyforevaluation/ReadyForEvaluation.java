@@ -1,8 +1,8 @@
 package com.procurement.requestforquotations.readyforevaluation;
-import com.interfaces.ReadyForEvalutationInterface;
+import com.interfaces.procurementInterfaces.RequestForQuotations.ReadyForEvalutationInterface;
 import com.microsoft.playwright.Page;
-import com.interfaces.LoginPageInterface;
-import com.interfaces.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
 import java.util.Properties;
 
 public class ReadyForEvaluation implements ReadyForEvalutationInterface {

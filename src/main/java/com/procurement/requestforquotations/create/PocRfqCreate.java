@@ -1,8 +1,8 @@
 package com.procurement.requestforquotations.create;
-import com.interfaces.RfqCreate;
+import com.interfaces.procurementInterfaces.RequestForQuotations.RfqCreate;
 import com.microsoft.playwright.Page;
-import com.interfaces.LoginPageInterface;
-import com.interfaces.LogoutPageInterface;
+import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
+import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
 import com.microsoft.playwright.options.LoadState;
 
 import java.util.Properties;
