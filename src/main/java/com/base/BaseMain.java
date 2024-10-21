@@ -6,6 +6,7 @@ import com.interfaces.procurementInterfaces.Inspections.InspectionAssignInterfac
 import com.interfaces.procurementInterfaces.Inspections.InspectionCreateInterface;
 import com.interfaces.procurementInterfaces.Invoice.POInvoiceApprovalInterface;
 import com.interfaces.procurementInterfaces.Invoice.POInvoiceCreateInterface;
+import com.interfaces.procurementInterfaces.Invoice.POInvoiceSendForApprovalInterface;
 import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
 import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
 import com.interfaces.procurementInterfaces.MSA.PorInspectPoInterface;
@@ -114,7 +115,7 @@ public class BaseMain {
     protected WorkOrderCreateInterface workOrderCreateInterface;
     protected WOTrackerStatusInterface woTrackerStatusInterface;
     protected POInvoiceCreateInterface poInvoiceCreateInterface;
-    protected POSendForApprovalInterface poSendForApprovalInterface;
+    protected POInvoiceSendForApprovalInterface poSendForApprovalInterface;
     protected POInvoiceApprovalInterface poInvoiceApprovalInterface;
 
 //TODO Constructor
