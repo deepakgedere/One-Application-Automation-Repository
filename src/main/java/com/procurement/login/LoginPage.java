@@ -4,6 +4,7 @@ import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.procurement.loc.loc;
+import com.procurement.loc.login.loginLocators;
 
 import java.util.Properties;
 
@@ -22,36 +23,36 @@ public class LoginPage implements LoginPageInterface {
     }
 
     public void LoginMethod() {
-        Locator mailId = page.locator(loc.loginEmailLocator);
+        Locator mailId = page.locator(loginLocators.loginEmailLocator);
         mailId.click();
         mailId.fill(properties.getProperty("EmailID"));
-        Locator password = page.locator("//input[@id='Input_Password']");
+        Locator password = page.locator(loginLocators.loginPasswordLocator);
         password.click();
         password.fill(properties.getProperty("Password"));
-        Locator loginButton = page.locator("//button[@id='login-submit']");
+        Locator loginButton = page.locator(loginLocators.loginSubmitLocator);
         loginButton.click();
 //        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Login")).click();
     }
 
     public void LoginMethod(String getMailId) {
-        Locator mailId = page.locator("//input[@id='Input_Email']");
+        Locator mailId = page.locator(loginLocators.loginEmailLocator);
         mailId.click();
         mailId.fill(getMailId);
-        Locator password = page.locator("//input[@id='Input_Password']");
+        Locator password = page.locator(loginLocators.loginPasswordLocator);
         password.click();
         password.fill(properties.getProperty("Password"));
-        Locator loginButton = page.locator("//button[@id='login-submit']");
+        Locator loginButton = page.locator(loginLocators.loginSubmitLocator);
         loginButton.click();
     }
 
     public void LoginMethod(String getMailId, Page page) {
-        Locator mailId = page.locator("//input[@id='Input_Email']");
+        Locator mailId = page.locator(loginLocators.loginEmailLocator);
         mailId.click();
         mailId.fill(getMailId);
-        Locator password = page.locator("//input[@id='Input_Password']");
+        Locator password = page.locator(loginLocators.loginPasswordLocator);
         password.click();
         password.fill(properties.getProperty("Password"));
-        Locator loginButton = page.locator("//button[@id='login-submit']");
+        Locator loginButton = page.locator(loginLocators.loginSubmitLocator);
         loginButton.click();
     }
 }

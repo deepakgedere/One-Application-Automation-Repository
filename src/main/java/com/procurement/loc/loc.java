@@ -7,7 +7,6 @@ import java.util.Properties;
 
 public class loc implements locInterface {
 
-    public static String loginEmailLocator = "//input[@id='Input_Email']";
 
 }
 

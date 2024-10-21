@@ -8,7 +8,6 @@ public class requisitionLocators extends loc {
 
 
     public static String projectMethod(Properties properties){
-        String projectLocator = "//li[contains(text(),'" + properties.getProperty("Project") + "')]";
-        return projectLocator;
+        return "//li[contains(text(),'" + properties.getProperty("Project") + "')]";
     }
 }
