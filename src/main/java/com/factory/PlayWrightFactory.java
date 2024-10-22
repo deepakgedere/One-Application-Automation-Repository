@@ -73,7 +73,7 @@ public class PlayWrightFactory {
 
     public Page initializeBrowser(Properties properties) {
         String browserName = properties.getProperty("browser").trim();
-        switch (browserName.toLowerCase()) {
+        switch (browserName.toLowerCase())  {
             case "chromium":
                 localBrowser.set(getPlaywright().chromium().launch(new BrowserType.LaunchOptions().setHeadless(false)));
                 break;

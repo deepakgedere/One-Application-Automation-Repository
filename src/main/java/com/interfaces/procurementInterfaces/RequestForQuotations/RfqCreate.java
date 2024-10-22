@@ -5,4 +5,6 @@ public interface RfqCreate {
     void BuyerRfqCreate();
     void RfQNotes();
     void RFQCreate() throws InterruptedException;
+
+    void RfqCreateCombined() throws InterruptedException;
 }

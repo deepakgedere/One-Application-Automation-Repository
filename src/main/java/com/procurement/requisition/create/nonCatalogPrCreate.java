@@ -13,6 +13,36 @@ public class nonCatalogPrCreate extends prCreateAbstract{
         super(loginPageInterface, properties, page, logoutPageInterface);
     }
 
+    public void NonCatalogCreate() throws InterruptedException {
+        RequesterLoginPRCreate();
+        CreateButton();
+        PrType();
+        Title();
+        Project();
+        WBS();
+        Incoterm();
+        ShippingAddress();
+        ShippingMode();
+        QuotationRequiredBy();
+        ExpectedPOIssue();
+        ExpectedDelivery();
+        ProjectManager();
+        BuyerManager();
+        PriceValidity();
+        InspectionRequired();
+        OrderIntake();
+        TargetPrice();
+        Tcas();
+        TcasCheck();
+        TcasFileUpload();
+        WarrantyRequirements();
+        ImportItems();
+        AddLineRequisitionItems();
+        Notes();
+        NotesAttachments();
+        PRCreate();
+    }
+
     @Override
     public void PrType(){
         page.locator("//tbody/tr[2]/td[1]/a[1]").click();

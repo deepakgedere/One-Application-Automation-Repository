@@ -104,7 +104,7 @@
                 <version>${maven-surefire-plugin}</version>
                 <configuration>
                     <systemPropertyVariables>
-                        <SELENIUM_REMOTE_URL>http://localhost:4444/wd/hub</SELENIUM_REMOTE_URL>
+                        <SELENIUM_REMOTE_URL>http://127.0.0.1:4444/wd/hub</SELENIUM_REMOTE_URL>
                     </systemPropertyVariables>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/testrunners/catalogPositiveFlowTest.xml</suiteXmlFile>

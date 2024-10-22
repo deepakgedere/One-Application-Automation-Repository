@@ -29,6 +29,12 @@ public class PocRfqCreate implements RfqCreate {
         loginPageInterface.LoginMethod(properties.getProperty("Buyer"));
     }
 
+    public void RfqCreateCombined() throws InterruptedException {
+        BuyerRfqCreate();
+        RfQNotes();
+        RFQCreate();
+    }
+
     public void BuyerRfqCreate() {
         loginPageInterface.LoginMethod(properties.getProperty("Buyer"));
         page.locator("#ni-requisitions").click();

@@ -68,6 +68,7 @@ public abstract class prCreateAbstract implements PrCreate {
         page.locator("#select2-wbsId-container").click();
         page.locator(".select2-search__field").fill(properties.getProperty("Wbs"));
         Locator getWbs = page.locator("//li[contains(text(),'" + properties.getProperty("Wbs") + "')][1]");
+        getWbs.waitFor();
         getWbs.click();
     }
 
