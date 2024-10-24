@@ -12,7 +12,7 @@ public class nonCatalogPositiveTestFlow extends BaseTest {
             prAssign.BuyerManagerAssign();
             rfqCreate.RfqCreateCombined();
             quotationSubmit.InviteRegisteredVendor();
-            quotationCreateMethod();
+            quotationSubmit.QuotationSubmit();
             readyForEvalutationInterface.ReadyForEvaluationButton();
             technicalEvaluationInterface.TechnicalEvaluationButton();
             commercialEvaluationInterface.CommercialEvaluationButton();
@@ -40,13 +40,6 @@ public class nonCatalogPositiveTestFlow extends BaseTest {
         }
     }
 
-    private void quotationCreateMethod() throws InterruptedException{
-        quotationSubmit.VendorLogin();
-        quotationSubmit.Compliances();
-        quotationSubmit.QuotationItems();
-        quotationSubmit.QuotationAttachments();
-        quotationSubmit.QuotationSubmitButton();
-    }
     private void porCreateMethod() throws InterruptedException{
         porCreateNonCatalog.BuyerPORCreate();
         porCreateNonCatalog.Justification();

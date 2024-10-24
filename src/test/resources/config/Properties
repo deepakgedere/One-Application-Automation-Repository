@@ -1,5 +1,5 @@
 #PoReferenceId
-#Tue Oct 01 15:52:37 IST 2024
+#Thu Oct 24 11:00:32 IST 2024
 //TODO=Non-Catalog (PR to Invoice)
 AdminId=admin@cormsquare.com
 Approver1=projectmanager@cormsquare.com
@@ -9,9 +9,9 @@ Approver4=v.@yokogawa.com
 Approver5=hl@yokogawa.com
 ApproversCount=3
 BillOfLading=Bill of Lading
-Buyer=buyer@cormsquare.com
+Buyer=bgm@cormsquare.com
 BuyerGroup=BG2 - CONTROL ROOM / LVS / CABLES
-BuyerManager=buyermanager@cormsquare.com
+BuyerManager=bgm@cormsquare.com
 Category=Cable
 Checker=c.senthilkumar@yokogawa.com
 ChiefFinancialOfficer=cfo@cormsquare.com
@@ -46,9 +46,9 @@ PRApproverGroupD=businessunitmanager@cormsquare.com
 PackageType=Drum
 PartNumber=PN - 1
 Password=Admin@123
-PoReferenceId=240024POR01136
+PoReferenceId=CS30024PR00004
 PorNotes=Purchase Order Request Notes
-PrRefId=240024PR01739
+PrRefId=CS30024PR00004
 PresidentDirectorCorporate=hazel@sharklasers.com
 PriceValidity=3 Months
 Project=E256232Q00
@@ -60,13 +60,13 @@ Rate=690
 RateContract=RC-00159
 RfQNotes=Request For Quotation Notes and Attachments
 ShippingAddress=2400 - Yokogawa Engineering Asia Pte Ltd - 9001
-ShippingMode=Road Freight
+ShippingMode=Road
 SourceCountry=India
 StorageLocation=1001 - \tGeneral Sys Impo
 TEApprover=requester@cormsquare.com
 TargetPrice=4500
 TaxCode=P8-8% Local standard rate purchase
-Title=auto chrome non-catalog
+Title=Minininin
 TypeOfPurchase=Multiple Vendor
 Vendor=Alpha Limited
 VendorMailId=alpha123@cormsquare.com

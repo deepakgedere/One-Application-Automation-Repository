@@ -42,7 +42,9 @@ public class catalogPrCreate extends prCreateAbstract{
         Tcas();
         TcasCheck();
         TcasFileUpload();
-        ImportItems();
+//        ImportItems();
+//        AddLineRequisitionItems();
+        CreateItemsFile();
         AddLineRequisitionItems();
         Notes();
         NotesAttachments();
@@ -161,7 +163,5 @@ public class catalogPrCreate extends prCreateAbstract{
         CommercialFile.setInputFiles(Paths.get("./Attachments-and-import-files/ExportItems.xlsx"));
 
         page.locator("#btnUpload").click();
-
-        Thread.sleep(100000);
     }
 }

@@ -3,12 +3,14 @@ package com.procurement.requestforquotations.quotationsubmit;
 import com.interfaces.procurementInterfaces.Login.LoginPageInterface;
 import com.interfaces.procurementInterfaces.Logout.LogoutPageInterface;
 import com.interfaces.procurementInterfaces.RequestForQuotations.QuotationSubmit;
+import com.microsoft.playwright.Download;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -47,6 +49,14 @@ public class RegisteredVendorQuotationSubmit implements QuotationSubmit {
         logoutPageInterface.LogoutMethod();
     }
 
+
+    public void QuotationSubmit() throws InterruptedException {
+        VendorLogin();
+        Compliances();
+        QuotationItems();
+        QuotationAttachments();
+        QuotationSubmitButton();
+    }
     public void VendorLogin() throws InterruptedException {
         loginPageInterface.LoginMethod(properties.getProperty("VendorMailId"));
         String title = properties.getProperty("Title");
@@ -57,30 +67,13 @@ public class RegisteredVendorQuotationSubmit implements QuotationSubmit {
         Thread.sleep(2000);
         Locator validityDate = page.locator("#dates");
         validityDate.click();
-        Locator today = page.locator("//span[@class='flatpickr-day today']");
-//        int getTodayDayNumber = Integer.parseInt(today.textContent());
-//        int getTomorrowDayNumber = getTodayDayNumber + 1;
-//        int nextDayAfterThirty = 31;
-//        if (getTodayDayNumber == 30) {
-//            Locator day = page.locator("//span[contains(text(), '" + nextDayAfterThirty + "')]");
-//            if (day.isVisible() || !day.isHidden()) {
-//                day.click();
-//            } else {
-//                page.locator(".flatpickr-day.nextMonthDay").first().click();
-//            }
-//        }
-//        if (getTodayDayNumber == 31) {
-//            page.locator(".flatpickr-day.nextMonthDay").first().click();
-//        }
-//        else {
-//            page.locator("//span[contains(text(), '" + getTomorrowDayNumber + "')]").last().click();
-//        }
+        Locator today = page.locator("(//span[@class='flatpickr-day today'])[2]");
         if (Integer.parseInt(today.textContent()) < 20){
             page.locator("//span[text()='28' and not(contains(@class,'prevMonthDay'))]").click();
         }
         else{
-            page.locator("//span[@class='flatpickr-next-month']").click();
-            page.locator("//span[text()='5' and not(contains(@class,'prevMonthDay')) and not(contains(@class,'nextMonthDay'))]").click();
+            page.locator("(//span[@class='flatpickr-next-month'])[2]").click();
+                page.locator("(//span[text()='5' and not(contains(@class,'prevMonthDay')) and not(contains(@class,'nextMonthDay'))])[2]").click();
         }
     }
 
@@ -93,75 +86,54 @@ public class RegisteredVendorQuotationSubmit implements QuotationSubmit {
 //        page.locator("#insuranceComplyId").click();
 //        page.locator("#bankGuaranteeComplyId").click();
     }
+
     public void QuotationItems() {
+        Download download = page.waitForDownload(() -> {
+            page.click("#exportItem");
+        });
+        download.saveAs(Paths.get("Attachments-and-import-files/" + download.suggestedFilename()));
+        String filePath = "Attachments-and-import-files/ExportItems.xlsx"; // Path to your Excel file
+        try {
+            // Step 1: Load the Excel file
+            FileInputStream fileInputStream = new FileInputStream(filePath);
+            Workbook workbook = new XSSFWorkbook(fileInputStream);
+            Sheet sheet = workbook.getSheetAt(0); // Get the first sheet (index 0)
 
-        class ExcelReader {
-            public static List<List<String>> readExcel(String filePath) {
-                List<List<String>> data = new ArrayList<>();
+            // Step 2: Start the loop from the second row (index 1)
+            for (int rowIndex = 1; rowIndex <= sheet.getLastRowNum(); rowIndex++) { // rowIndex 1 for second row
+                Row row = sheet.getRow(rowIndex);
 
-                try (FileInputStream fis = new FileInputStream(filePath);
-                     Workbook workbook = new XSSFWorkbook(fis)) {
-
-                    Sheet sheet = workbook.getSheetAt(0);
-
-                    // Start from the second row (index 1)
-                    for (int i = 1; i <= sheet.getLastRowNum(); i++) {
-                        Row row = sheet.getRow(i);
-                        List<String> rowData = new ArrayList<>();
-                        for (Cell cell : row) {
-                            rowData.add(getCellStringValue(cell));
-                        }
-                        data.add(rowData);
-                    }
-
-                } catch (IOException e) {
-                    e.printStackTrace();
+                if (row != null) { // Check if the row exists
+                    row.getCell(6).setCellValue("Notes " + rowIndex);
+                    row.getCell(7).setCellValue("123456");
+                    row.getCell(8).setCellValue("Make "+rowIndex);
+                    row.getCell(9).setCellValue("Model "+rowIndex);
+                    row.getCell(10).setCellValue("PartNo. "+rowIndex);
+                    row.getCell(11).setCellValue("ReqPart. "+rowIndex);
+                    row.getCell(12).setCellValue("ReqManu. "+rowIndex);
+                    row.getCell(13).setCellValue("Uganda");
+                    row.getCell(16).setCellValue(25.27);
+                    row.getCell(17).setCellValue(5);
                 }
-
-                return data;
             }
 
-            private static String getCellStringValue(Cell cell) {
-                DataFormatter dataFormatter = new DataFormatter();
-                return dataFormatter.formatCellValue(cell);
-            }
+            // Step 4: Write the updated data back to the file
+            FileOutputStream fileOutputStream = new FileOutputStream(filePath);
+            workbook.write(fileOutputStream);
+
+            // Step 5: Close the streams
+            fileInputStream.close();
+            fileOutputStream.close();
+            workbook.close();
+            System.out.println("Excel file updated successfully!");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-        // Read data from the Excel file
-        String excelFilePath = "Attachments-and-import-files/Quote.xlsx";
-        List<List<String>> excelData = ExcelReader.readExcel(excelFilePath);
-
-        int itemIndex = 1; // Start with the first item
-        // Iterate through each row of data
-        for (List<String> rowData : excelData) {
-            if (rowData.size() < 9) {
-                continue; // Skip rows that don't have enough data
-            }
-            // Assuming the input fields have specific selectors
-            page.fill("#hsCode-" + itemIndex, rowData.get(0));
-            page.fill("#make-" + itemIndex, rowData.get(1));
-            page.fill("#model-" + itemIndex, rowData.get(2));
-            page.fill("#partNumber-" + itemIndex, rowData.get(3));
-            page.fill("#countryOfOrigin-" + itemIndex, rowData.get(4));
-            Locator Rate = page.locator("#rate-" + itemIndex);
-            Rate.fill(rowData.get(5));
-            Rate.evaluate("el => { el.dispatchEvent(new Event('keyup', { bubbles: true })); }");
-            page.fill("#discount-" + itemIndex, rowData.get(6));
-//            page.fill("#cgst-" + itemIndex, rowData.get(7));
-//            page.fill("#sgst-" + itemIndex, rowData.get(8));
-            page.fill("#leadTime-" + itemIndex, rowData.get(7));
-            page.fill("#notes-" + itemIndex, rowData.get(8));
-            itemIndex++; // Increment the item index for the next row
-        }
-
-//        for (int i=0; i<excelData.size(); i++){
-//            Locator ViewItemSpecification = page.locator("#viewitemspecification");
-//            if (ViewItemSpecification!=null) {
-//                ViewItemSpecification.nth(i).click();
-//                page.locator("#complyAll").click();
-//                page.locator("#itemSpecificationSave").click();
-//            }
-//        }
+        page.locator("#importItem").click();
+        Locator CommercialFile = page.locator("#formFile");
+        CommercialFile.setInputFiles(Paths.get("./Attachments-and-import-files/ExportItems.xlsx"));
+        page.locator("#btnUpload").click();
 
         //GST %
         page.locator("#gstId").fill(properties.getProperty("GST"));

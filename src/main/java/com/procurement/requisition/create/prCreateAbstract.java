@@ -8,6 +8,7 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Response;
 import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.LoadState;
+import com.microsoft.playwright.options.WaitForSelectorState;
 import com.procurement.loc.requisition.requisitionLocators;
 
 import java.nio.file.Paths;
@@ -31,9 +32,9 @@ public abstract class prCreateAbstract implements PrCreate {
 
     public void RequesterLoginPRCreate() throws InterruptedException {
         loginPageInterface.LoginMethod(properties.getProperty("EmailID"));
-        Thread.sleep(2000);
-        page.locator("//a[contains(@class,'nav-link') and contains(@href,'Requisitions')]").click();
         page.waitForLoadState(LoadState.NETWORKIDLE);
+//        page.locator("//a[contains(@class,'nav-link') and contains(@href,'Requisitions')]").click();
+//        page.waitForLoadState(LoadState.NETWORKIDLE);
     }
 
     public void CreateButton() {
@@ -53,23 +54,39 @@ public abstract class prCreateAbstract implements PrCreate {
     }
 
     public void Project() throws InterruptedException {
-        page.locator("#select2-projectId-container").click();
+        Locator project = page.locator("#select2-projectId-container");
+        project.waitFor(new Locator.WaitForOptions().setTimeout(5000));
+        project.click();
+
         page.getByRole(AriaRole.SEARCHBOX).fill(properties.getProperty("Project"));
         String getProject = requisitionLocators.projectMethod(properties);
-        Response response = page.waitForResponse(
-                resp -> resp.url().startsWith("https://dprocure-test.cormsquare.com/api/StorageLocations") && resp.status() == 200,
-                () -> {
-                    page.locator(getProject).click();
-                }
-        );
+        Locator getProject1 = page.locator(getProject);
+        getProject1.waitFor(new Locator.WaitForOptions().setTimeout(5000));
+        getProject1.click();
+//        page.waitForLoadState(LoadState.NETWORKIDLE);
+//        Response response = page.waitForResponse(
+//                resp -> resp.url().startsWith("https://dprocure-test.cormsquare.com/api/StorageLocations") && resp.status() == 200,
+//                () -> {
+//                    page.locator(getProject).click();
+//                }
+//        );
     }
 
     public void WBS() {
-        page.locator("#select2-wbsId-container").click();
-        page.locator(".select2-search__field").fill(properties.getProperty("Wbs"));
+        Locator wbs = page.locator("#select2-wbsId-container");
+        wbs.waitFor(new Locator.WaitForOptions().setTimeout(5000));
+        wbs.click();
+        Locator wbs1= page.locator(".select2-search__field");
+        wbs1.waitFor(new Locator.WaitForOptions().setTimeout(5000));
+        wbs1.fill(properties.getProperty("Wbs"));
         Locator getWbs = page.locator("//li[contains(text(),'" + properties.getProperty("Wbs") + "')][1]");
-        getWbs.waitFor();
+        getWbs.waitFor(new Locator.WaitForOptions().setTimeout(5000).setState(WaitForSelectorState.VISIBLE));
         getWbs.click();
+//        page.locator("#select2-wbsId-container").click();
+//        page.locator(".select2-search__field").fill(properties.getProperty("Wbs"));
+//        Locator getWbs = page.locator("//li[contains(text(),'" + properties.getProperty("Wbs") + "')][1]");
+//        getWbs.waitFor();
+//        getWbs.click();
     }
 
     public abstract void VendorSelection();
@@ -89,7 +106,12 @@ public abstract class prCreateAbstract implements PrCreate {
     }
     public void ShippingAddress() {
         page.locator("//span[@aria-labelledby='select2-shippingaddressId-container']").click();
-        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(properties.getProperty("ShippingAddress"))).click();
+        Locator ship = page.getByRole(AriaRole.OPTION,
+                new Page.GetByRoleOptions().setName(properties.getProperty("ShippingAddress")));
+        if (ship.count() > 0)
+            ship.click();
+        else
+            page.locator("//ul[@id='select2-shippingaddressId-results']/li").first().click();
     }
     public void StorageLocation() {
         page.locator("#select2-storageLocId-container").click();
@@ -98,9 +120,11 @@ public abstract class prCreateAbstract implements PrCreate {
 
     public void ShippingMode() {
         page.getByText("-- Select Shipping Mode --").click();
-        page.getByRole(AriaRole.SEARCHBOX).fill(properties.getProperty("ShippingMode"));
         Locator getShippingMode = page.locator("//li[contains(text(),'" + properties.getProperty("ShippingMode") + "')]");
-        getShippingMode.click();
+        if (getShippingMode.count()>0)
+            getShippingMode.click();
+        else
+            page.locator("//ul[contains(@id,'select2-shipping')]/li").first().click();
     }
 
     public void QuotationRequiredBy() {
@@ -216,6 +240,14 @@ public abstract class prCreateAbstract implements PrCreate {
 //        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add").setExact(true)).click();
 //    }
     public void AddLineRequisitionItems() {
+
+        if(page.locator("//tbody[@id='requisitionItems-container']/tr").count()>0)
+        {
+            page.locator("//tbody[@id='requisitionItems-container']/tr/td//a[@id='deleterequisitionitem']").click();
+        }
+
+
+
         page.locator("#addLineRequisitionItems").click();
         //TODO Item Select
         page.locator("//span[contains(@id,'select2-item')]").click();

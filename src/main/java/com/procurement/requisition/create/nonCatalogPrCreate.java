@@ -23,6 +23,7 @@ public class nonCatalogPrCreate extends prCreateAbstract{
         Incoterm();
         ShippingAddress();
         ShippingMode();
+        PlantCode();
         QuotationRequiredBy();
         ExpectedPOIssue();
         ExpectedDelivery();
@@ -68,5 +69,9 @@ public class nonCatalogPrCreate extends prCreateAbstract{
 
     }
 
+    public void PlantCode(){
+        page.locator("#select2-plantCodeId-container").click();
+        page.locator("(//ul[@id='select2-plantCodeId-results']/li)[1]").click();
+    }
 
 }

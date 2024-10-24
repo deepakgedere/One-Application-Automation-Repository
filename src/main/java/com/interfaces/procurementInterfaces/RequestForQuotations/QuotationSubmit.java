@@ -8,4 +8,6 @@ public interface QuotationSubmit {
 //    void Gst();
     void QuotationAttachments();
     void QuotationSubmitButton();
+
+    void QuotationSubmit() throws InterruptedException;
 }
